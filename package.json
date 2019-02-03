@@ -1,0 +1,31 @@
+{
+  "name": "ohdear-js-sdk",
+  "version": "0.1.0",
+  "description": "An SDK to easily work with the Oh Dear API",
+  "main": "dist/index.js",
+  "scripts": {
+    "build:dev": "cross-env NODE_ENV=devlopment tsc --p tsconfig.json",
+    "dev:watch": "cross-env NODE_ENV=devlopment tsc --outDir dist --pretty --watch",
+    "test": "ava tests"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mohammedmanssour/ohdear-js-sdk.git"
+  },
+  "author": {
+    "name": "Mohammed Manssour",
+    "email": "manssour.mohammed@gmail.com",
+    "url": "https://mohammedmanssour.me"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "ava": "^1.0.1",
+    "cross-env": "^5.2.0",
+    "prettier": "1.15.3",
+    "typescript": "^3.2.2"
+  }
+}

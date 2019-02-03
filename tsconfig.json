@@ -1,0 +1,14 @@
+{
+	"compilerOptions": {
+		"outDir": "./dist/",
+		"pretty": true,
+		"declaration": true,
+		"lib": ["es2015"],
+		"sourceMap": true,
+		"noImplicitAny": true,
+		"module": "CommonJS",
+  	},
+  	"exclude": [
+		"exampleApp"
+	]
+}
