@@ -2,7 +2,7 @@
   "name": "ohdear-js-sdk",
   "version": "0.1.0",
   "description": "An SDK to easily work with the Oh Dear API",
-  "main": "dist/index.js",
+  "main": "dist/OhDear.js",
   "scripts": {
     "build:dev": "cross-env NODE_ENV=devlopment tsc --p tsconfig.json",
     "dev:watch": "cross-env NODE_ENV=devlopment tsc --outDir dist --pretty --watch",
@@ -25,6 +25,7 @@
   "devDependencies": {
     "ava": "^1.0.1",
     "cross-env": "^5.2.0",
+    "node-fetch": "^2.3.0",
     "prettier": "1.15.3",
     "typescript": "^3.2.2"
   },
