@@ -75,4 +75,9 @@ export default class OhDear {
 
     return Site.newInstancefromApi(data);
   }
+
+  async deleteSite(id: number) {
+    let deleted = await this.client.delete(`sites/${id}`).call();
+    return deleted;
+  }
 }
