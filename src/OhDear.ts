@@ -53,4 +53,14 @@ export default class OhDear {
 
     return Promise.resolve({ data, meta });
   }
+
+  async site(id: number) {
+    let { data } = await this.client.get(`sites/${id}`).call();
+    return Site.newInstancefromApi(data);
+  }
+
+  async siteByUrl(url: string) {
+    let { data } = await this.client.get(`sites/url/${url}`).call();
+    return Site.newInstancefromApi(data);
+  }
 }
