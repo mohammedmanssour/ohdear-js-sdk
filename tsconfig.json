@@ -1,6 +1,7 @@
 {
 	"compilerOptions": {
 		"outDir": "./dist/",
+		"rootDir": "./src/",
 		"pretty": true,
 		"declaration": true,
 		"lib": ["es2015", "dom"],
@@ -9,6 +10,7 @@
 		"module": "CommonJS",
   	},
   	"exclude": [
-		"exampleApp"
+		"node_modules",
+        "dist"
 	]
 }
