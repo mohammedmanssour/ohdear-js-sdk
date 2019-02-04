@@ -30,7 +30,7 @@ export default class User extends ApiResource {
 
   static newInstancefromApi(data: any): User {
     const user = super.newInstancefromApi(data) as User;
-    user.teams.map(team => Team.newInstancefromApi(team));
+    user.teams = user.teams.map(team => Team.newInstancefromApi(team) as Team);
     return user;
   }
 }
