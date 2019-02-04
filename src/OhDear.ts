@@ -63,4 +63,16 @@ export default class OhDear {
     let { data } = await this.client.get(`sites/url/${url}`).call();
     return Site.newInstancefromApi(data);
   }
+
+  async createSite(url: string, teamID: number) {
+    let { data } = await this.client
+      .post('sites')
+      .withBody({
+        url,
+        team_id: teamID
+      })
+      .call();
+
+    return Site.newInstancefromApi(data);
+  }
 }
