@@ -27,5 +27,8 @@
     "cross-env": "^5.2.0",
     "prettier": "1.15.3",
     "typescript": "^3.2.2"
+  },
+  "dependencies": {
+    "fetch-http-wrapper": "^0.1.3"
   }
 }
