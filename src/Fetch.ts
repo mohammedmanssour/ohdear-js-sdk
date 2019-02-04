@@ -26,8 +26,8 @@ export default Fetch.before(Fetch.middlewares.query) // convert query params to 
     }
 
     if (res.status === 400) {
-      return res.text().then((text: string) => {
-        return Promise.reject(new FailedActionError(text));
+      return res.json().then((reason: any) => {
+        return Promise.reject(new FailedActionError(reason.message));
       });
     }
 
