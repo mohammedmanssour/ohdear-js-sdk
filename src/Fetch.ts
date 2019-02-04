@@ -32,8 +32,8 @@ export default Fetch.before(Fetch.middlewares.query) // convert query params to 
     }
 
     if (res.status === 422) {
-      return res.json().then((errors: ValidationErrorObject) => {
-        return Promise.reject(new ValidationError(errors));
+      return res.json().then((data: any) => {
+        return Promise.reject(new ValidationError(data.errors));
       });
     }
 
