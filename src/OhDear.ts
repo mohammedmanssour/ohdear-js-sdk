@@ -25,11 +25,14 @@ export default class OhDear {
    * get current user info
    */
   me() {
-    return this.client
-      .get('me')
-      .call()
-      .then((userInfo: any) => {
-        return Promise.resolve(User.newInstancefromApi(userInfo));
-      });
+    return (
+      this.client
+        .get('me')
+        .call()
+        //@ts-ignore
+        .then(({ data }) => {
+          return Promise.resolve(User.newInstancefromApi(data));
+        })
+    );
   }
 }
