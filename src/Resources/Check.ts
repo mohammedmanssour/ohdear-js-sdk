@@ -29,27 +29,4 @@ export default class Check extends ApiResource {
   static newInstance(): Check {
     return new Check();
   }
-
-  /*----------------------------------------------------
-  * Api Related Section
-  --------------------------------------------------- */
-  /**
-   * TODO::
-   * Enable the check.
-   */
-  public enable() {}
-
-  /**
-   * TODO::
-   * Disable the check.
-   */
-  public disable() {}
-
-  /**
-   * TODO::
-   * Request a new run.
-   *
-   * @return void
-   */
-  public requestRun() {}
 }
