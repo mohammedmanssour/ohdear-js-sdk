@@ -21,7 +21,7 @@ export default Fetch.before(Fetch.middlewares.query) // convert query params to 
 
   //handle errors
   .after((req: FetchRequest, res: Response) => {
-    if (req.options.method === 'delete' && res.ok) {
+    if (res.status === 204) {
       return Promise.resolve(true);
     }
 
