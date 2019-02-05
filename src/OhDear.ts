@@ -8,6 +8,7 @@ import Uptime from './Resources/Uptime';
 import Downtime from './Resources/Downtime';
 import BrokenLink from './Resources/BrokenLink';
 import MixedContentItem from './Resources/MixedContentItem';
+import CertificateHealth from './Resources/CertificateHealth';
 
 export default class OhDear {
   /**
@@ -163,5 +164,13 @@ export default class OhDear {
     } = await this.client.get(`mixed-content/${id}`).call();
 
     return data.map((item: any) => MixedContentItem.newInstancefromApi(item));
+  }
+
+  /*----------------------------------------------------
+  * CertificateHealth Api
+  --------------------------------------------------- */
+  async certificateHealth(id: number) {
+    let { data } = await this.client.get(`certificate-health/${id}`).call();
+    return CertificateHealth.newInstancefromApi(data);
   }
 }
