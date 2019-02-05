@@ -4,6 +4,8 @@ import FetchOptions from 'fetch-http-wrapper/dist/lib/FetchOptions';
 import SitesOptions from './Models/SitesOptions';
 import Site from './Resources/Site';
 import Check from './Resources/Check';
+import Uptime from './Resources/Uptime';
+import Downtime from './Resources/Downtime';
 
 export default class OhDear {
   /**
@@ -98,5 +100,43 @@ export default class OhDear {
   async requestRun(id: number) {
     const { data } = await this.client.post(`checks/${id}/request-run`).call();
     return Check.newInstancefromApi(data);
+  }
+
+  /*----------------------------------------------------
+  * Uptime Api
+  --------------------------------------------------- */
+  async uptime(
+    id: number,
+    startedAt: string,
+    endedAt: string,
+    split: string = 'month'
+  ) {
+    let { data } = await this.client
+      .get(`sites/${id}/uptime`)
+      .withParams({
+        'filter[started_at]': startedAt,
+        'filter[ended_at]': endedAt,
+        split
+      })
+      .call();
+
+    return data.map((item: any) => Uptime.newInstancefromApi(item));
+  }
+
+  /*----------------------------------------------------
+  * Downtime
+  --------------------------------------------------- */
+  async downtime(id: number, startedAt: string, endedAt: string) {
+    let {
+      data: { data }
+    } = this.client
+      .get(`sites/${id}/downtime`)
+      .withParams({
+        'filter[started_at]': startedAt,
+        'filter[ended_at]': endedAt
+      })
+      .call();
+
+    return data.map((item: any) => Downtime.newInstancefromApi(item));
   }
 }
