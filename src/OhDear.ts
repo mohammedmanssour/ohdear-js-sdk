@@ -6,6 +6,7 @@ import Site from './Resources/Site';
 import Check from './Resources/Check';
 import Uptime from './Resources/Uptime';
 import Downtime from './Resources/Downtime';
+import BrokenLink from './Resources/BrokenLink';
 
 export default class OhDear {
   /**
@@ -129,7 +130,7 @@ export default class OhDear {
   async downtime(id: number, startedAt: string, endedAt: string) {
     let {
       data: { data }
-    } = this.client
+    } = await this.client
       .get(`sites/${id}/downtime`)
       .withParams({
         'filter[started_at]': startedAt,
@@ -138,5 +139,17 @@ export default class OhDear {
       .call();
 
     return data.map((item: any) => Downtime.newInstancefromApi(item));
+  }
+
+  /*----------------------------------------------------
+  * BrokenLinks Api
+  --------------------------------------------------- */
+
+  async brokenLinks(id: number) {
+    let {
+      data: { data }
+    } = await this.client.get(`broken-links/${id}`).call();
+
+    return data.map((item: any) => BrokenLink.newInstancefromApi(item));
   }
 }
