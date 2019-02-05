@@ -3,6 +3,7 @@ import User from './Resources/User';
 import FetchOptions from 'fetch-http-wrapper/dist/lib/FetchOptions';
 import SitesOptions from './Models/SitesOptions';
 import Site from './Resources/Site';
+import Check from './Resources/Check';
 
 export default class OhDear {
   /**
@@ -79,5 +80,23 @@ export default class OhDear {
   async deleteSite(id: number) {
     let deleted = await this.client.delete(`sites/${id}`).call();
     return deleted;
+  }
+
+  /*----------------------------------------------------
+  * Checks Api
+  --------------------------------------------------- */
+  async enableCheck(id: number) {
+    const { data } = await this.client.post(`checks/${id}/enable`).call();
+    return Check.newInstancefromApi(data);
+  }
+
+  async disableCheck(id: number) {
+    const { data } = await this.client.post(`checks/${id}/disable`).call();
+    return Check.newInstancefromApi(data);
+  }
+
+  async requestRun(id: number) {
+    const { data } = await this.client.post(`checks/${id}/request-run`).call();
+    return Check.newInstancefromApi(data);
   }
 }
