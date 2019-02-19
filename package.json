@@ -1,6 +1,6 @@
 {
   "name": "ohdear-js-sdk",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "An SDK to easily work with the Oh Dear API",
   "main": "dist/OhDear.js",
   "scripts": {
@@ -26,6 +26,7 @@
     "ava": "^1.0.1",
     "cross-env": "^5.2.0",
     "node-fetch": "^2.3.0",
+    "ohdear-js-sdk": "../OhDearJS",
     "prettier": "1.15.3",
     "typescript": "^3.2.2"
   },
