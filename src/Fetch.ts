@@ -46,6 +46,7 @@ export default Fetch.before(Fetch.middlewares.query) // convert query params to 
         return Promise.reject(new NotFoundError());
       });
     }
-
-    return Promise.reject(new UnknownError(res.statusText));
+    return res.json().then((data: any) => {
+      return Promise.reject(new UnknownError(data.message));
+    });
   });
