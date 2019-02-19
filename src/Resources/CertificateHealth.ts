@@ -8,7 +8,7 @@ type CertificateDetails = {
 
 type CertificateCheck = {
   type: string;
-  labe: string;
+  label: string;
   passed: boolean;
 };
 
